@@ -1,0 +1,17 @@
+<div class="sale-dashboard">
+  <main class="frame">
+    <app-header (createEvent)="toggleView()"></app-header>
+    <div style="display: flex; flex-direction: column; gap: 15px; margin-top: 5%">
+      <div style="display: flex; flex-direction: row; gap: 30px;">
+        <app-side-bar (menuItemClicked)="handleMenuItemClick($event)"></app-side-bar>
+        <ng-container *ngIf="showBreadcrumb">
+          <app-breadcrumb></app-breadcrumb>
+        </ng-container>
+        <ng-container *ngIf="showEventForm">
+          <app-event-form></app-event-form>
+        </ng-container>
+      </div>
+      <app-footer></app-footer>
+    </div>
+  </main>
+</div>

@@ -1,0 +1,40 @@
+<div class="overlay">
+  <div class="overlay-content">
+
+<div class="containerr">
+  <div class="signin-signup">
+    <form (ngSubmit)="register()" class="sign-in-form">
+      <h2 class="title">Sign up</h2>
+      <div class="input-field">
+        <i class="fas fa-user"></i>
+        <input type="text" placeholder="Full Name" [(ngModel)]="fullName" name="registerFullName" required>
+      </div>
+      <div class="input-field">
+        <i class="fas fa-envelope"></i>
+        <input type="text" placeholder="Email" [(ngModel)]="email" name="registerEmail" required>
+      </div>
+      <div class="input-field">
+        <i class="fas fa-lock"></i>
+        <input type="password" placeholder="Password" [(ngModel)]="password" name="registerPassword" required>
+      </div>
+      <button type="submit" class="btn">Sign up</button>
+      <p class="account-text">Already have an account? <a href="#" id="sign-in-btn2">Sign in</a></p>
+    </form>
+    <div style="width: 350px;"></div>
+  </div>
+  <div class="panels-container">
+    <div style="width: 350px;"></div>
+    <div class="panel right-panel">
+      <div class="content">
+        <h3>Member of Brand?</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque accusantium dolor, eos incidunt minima iure?</p>
+      </div>
+      <img src="/assets/img/register.png" alt="Sign up" class="image">
+    </div>
+  </div>
+</div>
+
+
+</div>
+</div>
+<router-outlet />

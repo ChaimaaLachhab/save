@@ -1,0 +1,57 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Event Booking</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <!-- Booking Form -->
+    <form [formGroup]="bookingForm" (ngSubmit)="bookEvent()">
+      <mat-form-field>
+        <mat-label>Event</mat-label>
+        <mat-select formControlName="event">
+          <mat-option *ngFor="let event of (events$ | async)" [value]="event.id">
+            {{ event.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Tickets</mat-label>
+        <input matInput formControlName="tickets" type="number" />
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit">Book</button>
+    </form>
+
+    <!-- Booking Confirmation -->
+    <div *ngIf="bookingConfirmation">
+      <h3>Booking Confirmation</h3>
+      <p>Event: {{ bookingConfirmation.eventName }}</p>
+      <p>Tickets: {{ bookingConfirmation.tickets }}</p>
+    </div>
+
+    <!-- User Tickets -->
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Your Tickets</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <table mat-table [dataSource]="userTickets$ | async" class="mat-elevation-z8">
+
+          <!-- Columns Definitions -->
+          <ng-container matColumnDef="eventName">
+            <th mat-header-cell *matHeaderCellDef> Event </th>
+            <td mat-cell *matCellDef="let ticket"> {{ ticket.event.name }} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="tickets">
+            <th mat-header-cell *matHeaderCellDef> Tickets </th>
+            <td mat-cell *matCellDef="let ticket"> {{ ticket.tickets }} </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="['eventName', 'tickets']"></tr>
+          <tr mat-row *matRowDef="let row; columns: ['eventName', 'tickets']"></tr>
+        </table>
+      </mat-card-content>
+    </mat-card>
+  </mat-card-content>
+</mat-card>

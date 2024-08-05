@@ -1,0 +1,96 @@
+/* You can customize the appearance of your stepper and form fields here */
+#toggle-linear {
+  margin-bottom: 20px;
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 15px;
+  width: 100%;
+}
+
+.stepper-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.custom-stepper {
+  width: 100%;
+  background-color: #fff;
+}
+
+.custom-stepper .mat-step-header {
+  background-color: #f26298;
+  color: white;
+}
+
+.custom-stepper .mat-step-header.mat-step-header-active {
+  background-color: #d44a84;
+}
+
+.custom-stepper .mat-form-field {
+  margin-bottom: 16px;
+}
+
+.custom-stepper .mat-form-field.mat-form-field-appearance-outline .mat-form-field-outline {
+  color: #f26298;
+}
+
+.custom-stepper .mat-form-field.mat-form-field-appearance-outline .mat-form-field-outline-thick {
+  border-color: #f26298;
+}
+
+.custom-stepper .mat-stepper-header .mat-step-icon {
+  color: #f26298;
+}
+
+.custom-stepper .mat-stepper-header .mat-step-icon.mat-step-icon-active {
+  color: #d44a84;
+}
+
+.next-button {
+  background-color: #f26298;
+  color: white;
+
+}
+
+.next-button:hover {
+  background-color: #d44a84;
+}
+
+.back-button {
+  background-color: #ddd;
+  color: #333;
+}
+
+.back-button:hover {
+  background-color: #ccc;
+}
+
+.reset-button {
+  background-color: #f26298;
+  color: white;
+}
+
+.reset-button:hover {
+  background-color: #d44a84;
+}
+
+.side-image img {
+  width: 70%;
+  border-radius: 8px;
+}
+
+.completed-image {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 8px;
+}

@@ -1,0 +1,52 @@
+<div class="frame1">
+  <div class="sidebar">
+    <div class="sidebar-menu-5">
+      <div class="menu-layout"
+           [ngClass]="{ active: activeItem === 'Dashboard' }"
+           (click)="activateLink('Dashboard')">
+        <div class="menu-items">
+          <img class="layout-11-icon" loading="lazy" src="/assets/public/layout-11@2x.png" alt="" />
+        </div>
+        <a class="calendar">Dashboard</a>
+      </div>
+
+      <div class="menu-layout"
+           [ngClass]="{ active: activeItem === 'My Events' }"
+           (click)="activateLink('My Events')">
+        <div class="menu-items">
+          <img class="layout-11-icon" loading="lazy" src="/assets/public/folder@2x.png" alt="" />
+        </div>
+        <a class="calendar">My Events</a>
+      </div>
+
+      <div class="menu-layout"
+           [ngClass]="{ active: activeItem === 'Teams' }"
+           (click)="activateLink('Teams')">
+        <div class="menu-items">
+          <img class="layout-11-icon" loading="lazy" src="/assets/public/meeting@2x.png" alt="" />
+        </div>
+        <a class="calendar">Teams</a>
+      </div>
+
+      <div class="menu-layout"
+           [ngClass]="{ active: activeItem === 'Messages' }"
+           (click)="activateLink('Messages')">
+        <div class="menu-items">
+          <img class="layout-11-icon" loading="lazy" src="/assets/public/f-chat@2x.png" alt="" />
+        </div>
+        <a class="calendar">Messages</a>
+      </div>
+
+      <div class="menu-layout"
+           [ngClass]="{ active: activeItem === 'Setting' }"
+           (click)="activateLink('Setting')">
+        <div class="menu-items">
+          <img class="layout-11-icon" loading="lazy" src="/assets/public/settings-gear.svg" alt="" />
+        </div>
+        <a class="calendar">Setting</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+

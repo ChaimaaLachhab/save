@@ -1,0 +1,34 @@
+<div class="event-table">
+  <table class="table-2">
+    <thead>
+    <tr class="header1">
+      <th class="purchase-header-columns">Index</th>
+      <th class="purchase-header-columns1">Image</th>
+      <th class="purchase-header-columns2">Name</th>
+      <th class="purchase-header-columns3">Price</th>
+      <th class="purchase-header-columns4">Date</th>
+      <th class="purchase-header-columns5">Category</th>
+      <th class="purchase-header-columns6">Available Tickets</th>
+      <th class="purchase-header-columns7">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="row1" *ngFor="let event of events; let i = index">
+      <td class="purchase-row-icons">{{ i + 1 }}</td>
+      <td class="purchase-row-avatars">
+        <div class="avatar-container">
+          <img class="avatar-icon" loading="lazy" [alt]="event.name" [src]="event.image" />
+        </div>
+      </td>
+      <td class="frame5">{{ event.name }}</td>
+      <td class="purchase-times">{{ event.price | currency }}</td>
+      <td class="frame6">{{ event.date | date:'shortDate' }}</td>
+      <td class="frame7">{{ event.category }}</td>
+      <td class="frame8">{{ event.availableTickets }}</td>
+      <td class="frame9">
+        <button class="delete-button" *ngIf="event.id" (click)="deleteEvent(event.id)">Delete</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
