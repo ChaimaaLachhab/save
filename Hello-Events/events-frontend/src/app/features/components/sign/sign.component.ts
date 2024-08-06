@@ -19,51 +19,56 @@ import {jwtDecode} from "jwt-decode";
 export class RegistrationComponent {
   email: string = '';
   password: string = '';
-  fullName: string = '';
+  userName: string = '';
 
   constructor(private authService: AuthenticationService, private router: Router) {}
 
   register() {
-    const registerUser : RegisterUserDto = new RegisterUserDto(this.email, this.password, this.fullName);
-    const loginUser:LoginUserDto = new LoginUserDto(this.email, this.password);
-    this.authService.signup(registerUser).subscribe(
-      {
-        next: (response) => {
-          console.log('Registration successful:', response);
-          this.authService.login(loginUser).subscribe(
-            {
-              next: (response) => {
-                console.log('Login successful:', response);
-                localStorage.setItem('token', response.token);
-                console.log('Token expires in:', response.expiresIn);
+    const registerUser: RegisterUserDto = new RegisterUserDto(this.email, this.password, this.userName);
+    const loginUser: LoginUserDto = new LoginUserDto(this.email, this.password);
 
-                const token = response.token;
-                const decodedToken: any = jwtDecode(token);
-
-                if (decodedToken.role === 'ADMIN') {
-                  this.router.navigate(['/dashboard']);
-                } else if (decodedToken.role === 'USER') {
-                  this.router.navigate(['/home2']);
-                } else {
-                  console.error('Unknown role:', decodedToken.role);
-                }
-              },
-              error: (err) => {
-                console.error('Login failed:', err);
-              },
-              complete: () => {
-                console.log('You are login successfully.');
-              }
-            }
-          );
-        },
-        error: (err) => {
-          console.error('Registration failed:', err);
-        },
-        complete: () => {
-          console.log('Registration process completed.');
-        }
+    this.authService.signup(registerUser).subscribe({
+      next: (response) => {
+        console.log('Registration successful:', response);
+        this.loginUser(loginUser);
+      },
+      error: (err) => {
+        console.error('Registration failed:', err);
+      },
+      complete: () => {
+        console.log('Registration process completed.');
       }
-    );
+    });
+  }
+
+  loginUser(loginUser: LoginUserDto) {
+    this.authService.login(loginUser).subscribe({
+      next: (response) => {
+        console.log('Login successful:', response);
+        localStorage.setItem('token', response.token);
+        console.log('Token expires in:', response.expiresIn);
+
+        const token = response.token;
+        const decodedToken: any = jwtDecode(token);
+
+        this.redirectBasedOnRole(decodedToken.role);
+      },
+      error: (err) => {
+        console.error('Login failed:', err);
+      },
+      complete: () => {
+        console.log('You are login successfully.');
+      }
+    });
+  }
+
+  redirectBasedOnRole(role: string) {
+    if (role === 'ADMIN') {
+      this.router.navigate(['/dashboard']);
+    } else if (role === 'USER') {
+      this.router.navigate(['/home2']);
+    } else {
+      console.error('Unknown role:', role);
+    }
   }
 }

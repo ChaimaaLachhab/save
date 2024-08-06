@@ -1,11 +1,11 @@
 export class RegisterUserDto {
   email: string;
   password: string;
-  fullName: string;
+  userName: string;
 
-  constructor(email: string, password: string, fullName: string) {
+  constructor(email: string, password: string, userName: string) {
     this.email = email;
     this.password = password;
-    this.fullName = fullName;
+    this.userName = userName;
   }
 }

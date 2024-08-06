@@ -2,6 +2,7 @@ package com.hello.configs;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -33,7 +34,7 @@ public class SecurityConfiguration {
                         .requestMatchers("/api/contacts/admin/**").hasAuthority("ROLE_ADMIN")
                         .requestMatchers("/api/reservations/client/**").hasAuthority("ROLE_USER")
                         .requestMatchers("/api/reservations/admin/**").hasAuthority("ROLE_ADMIN")
-                        .requestMatchers("/api/events/**").hasAnyAuthority("ROLE_USER", "ROLE_ADMIN")
+                        .requestMatchers("/api/events/**").permitAll()
                         .requestMatchers("/api/events/admin/**").hasAuthority("ROLE_ADMIN")
                         .anyRequest().authenticated()
                 )

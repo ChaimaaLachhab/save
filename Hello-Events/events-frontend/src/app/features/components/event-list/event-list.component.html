@@ -1,0 +1,47 @@
+<div *ngFor="let event of events" class="container-10">
+  <div class="image-7-parent">
+    <img
+      class="image-7-icon"
+      alt=""
+      [src]="event.image"
+    />
+    <img
+      class="container-11-icon"
+      loading="lazy"
+      alt=""
+      src="/assets/public/container-15@2x.png"
+    />
+  </div>
+  <div class="container-14-inner">
+    <div class="frame-group">
+      <div class="melody-mania-parent">
+        <b class="melody-mania">{{ event.name }}</b>
+        <div class="frame-container">
+          <div class="frame-div">
+            <div class="calendar-today-4-wrapper">
+              <img
+                class="place-5-icon"
+                alt=""
+                src="/assets/public/calendar-today-4@2x.png"
+              />
+            </div>
+            <b class="monday-june-06">{{ event.date}}</b>
+          </div>
+          <div class="event-location-container">
+            <div class="calendar-today-4-wrapper">
+              <img
+                class="place-5-icon"
+                alt=""
+                src="/assets/public/place-5@2x.png"
+              />
+            </div>
+            <div class="new-york-ny1">{{ event.location }}</div>
+          </div>
+        </div>
+      </div>
+      <div class="free-ticket-wrapper">
+        <div class="free-ticket">{{ event.price === 0 ? 'Free ticket' : event.price | currency }}</div>
+      </div>
+    </div>
+  </div>
+</div>

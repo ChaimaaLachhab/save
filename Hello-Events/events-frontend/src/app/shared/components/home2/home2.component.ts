@@ -14,10 +14,10 @@ import {EventClass} from "../../../core/models/event-class";
     HttpClientModule, RouterModule, NgForOf, NgIf, NgOptimizedImage
   ],
 
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+  templateUrl: './home2.component.html',
+  styleUrl: './home2.component.scss'
 })
-export class HomeComponent implements OnInit {
+export class Home2Component implements OnInit {
   events: EventClass[] = [];
 
   constructor(private eventService: EventService) {}
